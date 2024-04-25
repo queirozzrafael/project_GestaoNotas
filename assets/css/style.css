@@ -1,0 +1,25 @@
+/*.color1 { #25506b };
+.color2 { #3d6783 };
+.color3 { #557e9b };
+.color4 { #6c94b2 };
+.color5 { #84abca };*/
+
+body{
+    margin: 0;
+    background-color: #3d6783;
+}
+
+.navbar{
+    height: 70px;
+    background-color: #25506b;
+    display:flex;
+    align-items: center;
+}
+
+.container{
+    height: 450px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
