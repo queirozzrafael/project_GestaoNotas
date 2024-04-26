@@ -13,3 +13,42 @@ function statusAprovacao() {
     }
 }
 
+function calcularMedias() {
+    // Obter as notas dos inputs
+    let notaProva1 = parseFloat(document.getElementById("notaProva1").value);
+    let notaAEP1 = parseFloat(document.getElementById("notaAEP1").value);
+    let notaProvaIntegrada1 = parseFloat(document.getElementById("notaProvaIntegrada1").value);
+    
+    let notaProva2 = parseFloat(document.getElementById("notaProva2").value);
+    let notaAEP2 = parseFloat(document.getElementById("notaAEP2").value);
+    let notaProvaIntegrada2 = parseFloat(document.getElementById("notaProvaIntegrada2").value);
+
+    // Calcular as médias bimestrais e final
+    let mediaBimestre1 = calcularMediaBimestral(notaProva1, notaAEP1, notaProvaIntegrada1);
+    let mediaBimestre2 = calcularMediaBimestral(notaProva2, notaAEP2, notaProvaIntegrada2);
+    let mediaFinal = calcularMediaFinal(mediaBimestre1, mediaBimestre2);
+
+    // Exibir os resultados na página
+    let resultadosDiv = document.getElementById("resultados");
+    resultadosDiv.innerHTML = `
+        <h2>Resultados:</h2>
+        <p>Média Bimestre 1: ${mediaBimestre1.toFixed(2)}</p>
+        <p>Média Bimestre 2: ${mediaBimestre2.toFixed(2)}</p>
+        <p>Média Final: ${mediaFinal.toFixed(2)}</p>
+    `;
+}
+
+function calcularMediaBimestral(notaProva, notaAEP, notaProvaIntegrada) {
+    // Calcular a média bimestral usando a fórmula dada
+    let mediaBimestral = (notaProva * 0.8) + (notaAEP * 0.1) + (notaProvaIntegrada * 0.1);
+    // Limitar a média entre 0 e 10
+    mediaBimestral = Math.min(mediaBimestral, 10);
+    return mediaBimestral;
+}
+
+function calcularMediaFinal(mediaBimestre1, mediaBimestre2) {
+    // Calcular a média final
+    let mediaFinal = (mediaBimestre1 + mediaBimestre2) / 2;
+    return mediaFinal;
+}
+
