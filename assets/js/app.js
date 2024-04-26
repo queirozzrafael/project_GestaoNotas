@@ -52,3 +52,40 @@ function calcularMediaFinal(mediaBimestre1, mediaBimestre2) {
     return mediaFinal;
 }
 
+function calcularMedias() {
+    // Obter as notas dos inputs
+    let notaProva1 = parseFloat(document.getElementById("notaProva1").value);
+    let notaAEP1 = parseFloat(document.getElementById("notaAEP1").value);
+    let notaProvaIntegrada1 = parseFloat(document.getElementById("notaProvaIntegrada1").value);
+    
+    // Obter os elementos da tabela
+    let tbody = document.getElementById("corpoTabela");
+
+    // Verificar se já existe uma linha para o aluno
+    let alunoRow = tbody.querySelector("#alunoRow");
+
+    
+    if (!alunoRow) {
+        alunoRow = tbody.insertRow();
+        alunoRow.id = "alunoRow";
+    }
+
+    // preencher a linha com os dados do aluno
+    alunoRow.innerHTML = `
+        <td>Aluno</td>
+        <td>Email</td>
+        <td>RA</td>
+        <td>${notaProva1}</td>
+        <td>${notaAEP1}</td>
+        <td>${notaProvaIntegrada1}</td>
+        <td>Média Bimestre</td>
+        <td>Nota Prova 2</td>
+        <td>Nota AEP 2</td>
+        <td>Nota Prova Integrada 2</td>
+        <td>Média 2º Bimestre</td>
+        <td>Média Final</td>
+        <td>Status</td>
+        <td>Ações</td>
+    `;
+}
+
