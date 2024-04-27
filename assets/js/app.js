@@ -122,3 +122,55 @@ function statusAprovacao() {
         document.getElementById('status').innerText = 'Reprovado';
     }
 }
+function adicionaDadosAluno() {
+    // Obter os valores dos campos do formulário
+    let nome = document.getElementById("input_nome").value;
+    let email = document.getElementById("input_email").value;
+    let ra = document.getElementById("input_ra").value;
+    let notaProva1 = parseFloat(document.getElementById("notaProva1").value);
+    let notaAEP1 = parseFloat(document.getElementById("notaAEP1").value);
+    let notaProvaIntegrada1 = parseFloat(document.getElementById("notaProvaIntegrada1").value);
+    let notaProva2 = parseFloat(document.getElementById("notaProva2").value);
+    let notaAEP2 = parseFloat(document.getElementById("notaAEP2").value);
+    let notaProvaIntegrada2 = parseFloat(document.getElementById("notaProvaIntegrada2").value);
+
+    // Validar os campos obrigatórios
+    if (!nome || !email || !ra) {
+        alert("preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    let mediaBimestre1 = calcularMediaBimestral(notaProva1, notaAEP1, notaProvaIntegrada1);
+    let mediaBimestre2 = calcularMediaBimestral(notaProva2, notaAEP2, notaProvaIntegrada2);
+    let mediaFinal = calcularMediaFinal(mediaBimestre1, mediaBimestre2);
+
+    let status;
+    if (mediaFinal >= 5) {
+        status = 'Aprovado';
+    } else if (mediaFinal >= 3) {
+        status = 'Recuperação';
+    } else {
+        status = 'Reprovado';
+    }
+
+    let tbody = document.getElementById("corpoTabela");
+    let newRow = tbody.insertRow();
+
+    newRow.innerHTML = `
+        <td>${nome}</td>
+        <td>${email}</td>
+        <td>${ra}</td>
+        <td>${notaProva1}</td>
+        <td>${notaAEP1}</td>
+        <td>${notaProvaIntegrada1}</td>
+        <td>${mediaBimestre1.toFixed(2)}</td>
+        <td>${notaProva2}</td>
+        <td>${notaAEP2}</td>
+        <td>${notaProvaIntegrada2}</td>
+        <td>${mediaBimestre2.toFixed(2)}</td>
+        <td>${mediaFinal.toFixed(2)}</td>
+        <td>${status}</td>
+    `;
+}
+
+
