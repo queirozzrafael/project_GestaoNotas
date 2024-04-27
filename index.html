@@ -17,63 +17,66 @@
 
                         </div>
 
-                        <h1>Calculadora de Médias</h1>
-                        <form id="formNotas">
-                            <label for="notaProva1">Primeira Prova:</label>
-                            <input type="number" id="notaProva1" name="notaProva1" min="0" max="8" step="0.1"><br>
-                            
-                            <label for="notaAEP1">Primeira AEP:</label>
-                            <input type="number" id="notaAEP1" name="notaAEP1" min="0.1" max="1.0" step="0.1"><br>
-                            
-                            <label for="notaProvaIntegrada1">Primeira Integrada:</label>
-                            <input type="number" id="notaProvaIntegrada1" name="notaProvaIntegrada1" min="0.1" max="1.0" step="0.1"><br>
-                            
-                            <hr>
-                            
-                            <label for="notaProva2">Segunda Prova:</label>
-                            <input type="number" id="notaProva2" name="notaProva2" min="0" max="8" step="0.1"><br>
-                            
-                            <label for="notaAEP2">Segunda AEP:</label>
-                            <input type="number" id="notaAEP2" name="notaAEP2" min="0.1" max="1.0" step="0.1"><br>
-                            
-                            <label for="notaProvaIntegrada2">Segunda Integrada:</label>
-                            <input type="number" id="notaProvaIntegrada2" name="notaProvaIntegrada2" min="0.1" max="1.0" step="0.1"><br>
-                            
-                            <hr>
-                            
-                            <button type="button" onclick="calcularMedias()">Calcular Médias</button>
-                        </form>
+                        <div class="container">
+                            <h1>Calculadora de Médias</h1>
+                            <form id="formNotas">
+                                <label for="notaProva1">Primeira Prova:</label>
+                                <input type="number" id="notaProva1" name="notaProva1" min="0" max="8" step="0.1"><br>
+                                
+                                <label for="notaAEP1">Primeira AEP:</label>
+                                <input type="number" id="notaAEP1" name="notaAEP1" min="0.1" max="1.0" step="0.1"><br>
+                                
+                                <label for="notaProvaIntegrada1">Primeira Integrada:</label>
+                                <input type="number" id="notaProvaIntegrada1" name="notaProvaIntegrada1" min="0.1" max="1.0" step="0.1"><br>
+                                
+                                <label for="notaProva2">Segunda Prova:</label>
+                                <input type="number" id="notaProva2" name="notaProva2" min="0" max="8" step="0.1"><br>
+                                
+                                <label for="notaAEP2">Segunda AEP:</label>
+                                <input type="number" id="notaAEP2" name="notaAEP2" min="0.1" max="1.0" step="0.1"><br>
+                                
+                                <label for="notaProvaIntegrada2">Segunda Integrada:</label>
+                                <input type="number" id="notaProvaIntegrada2" name="notaProvaIntegrada2" min="0.1" max="1.0" step="0.1"><br>
+                                
+                                <!-- Campos para nome, email e RA -->
+                                <label for="input_nome">Nome:</label>
+                                <input type="text" id="input_nome" required><br>
+                                
+                                <label for="input_email">E-mail:</label>
+                                <input type="email" id="input_email" required><br>
+                                
+                                <label for="input_ra">RA:</label>
+                                <input type="text" id="input_ra" required><br>
+                                
+                                <button type="button" onclick="adicionaDadosAluno()">Adicionar Aluno</button>
+                            </form>
                         
-                        <div id="resultados"></div>
-
-                        <h1>Lista de Alunos</h1>
-                        <table id="tabelaAlunos">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>E-mail</th>
-                                    <th>RA</th>
-                                    <th>Prova 1º Bimestre</th>
-                                    <th>AEP 1º Bimestre</th>
-                                    <th>Prova Integrada 1º Bimestre</th>
-                                    <th>Média 1º Bimestre</th>
-                                    <th>Prova 2º Bimestre</th>
-                                    <th>AEP 2º Bimestre</th>
-                                    <th>Prova Integrada 2º Bimestre</th>
-                                    <th>Média 2º Bimestre</th>
-                                    <th>Média Final</th>
-                                    <th>Status</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody id="corpoTabela">
-
-                            </tbody>
-                        </table>
-                    
-
-            
-    
+                            <h1>Lista de Alunos</h1>
+                            <table id="tabelaAlunos">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>RA</th>
+                                        <th>Prova 1º Bimestre</th>
+                                        <th>AEP 1º Bimestre</th>
+                                        <th>Prova Integrada 1º Bimestre</th>
+                                        <th>Média 1º Bimestre</th>
+                                        <th>Prova 2º Bimestre</th>
+                                        <th>AEP 2º Bimestre</th>
+                                        <th>Prova Integrada 2º Bimestre</th>
+                                        <th>Média 2º Bimestre</th>
+                                        <th>Média Final</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpoTabela">
+                                    <!-- Os dados dos alunos serão inseridos aqui dinamicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+        
 
         <script src="assets/js/app.js"></script>
     </body>

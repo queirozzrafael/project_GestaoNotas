@@ -122,3 +122,21 @@ function statusAprovacao() {
         document.getElementById('status').innerText = 'Reprovado';
     }
 }
+function adicionaDadosAluno() {
+    // Obter os valores dos campos do formulário
+    let nome = document.getElementById("input_nome").value;
+    let email = document.getElementById("input_email").value;
+    let ra = document.getElementById("input_ra").value;
+    let notaProva1 = parseFloat(document.getElementById("notaProva1").value);
+    let notaAEP1 = parseFloat(document.getElementById("notaAEP1").value);
+    let notaProvaIntegrada1 = parseFloat(document.getElementById("notaProvaIntegrada1").value);
+    let notaProva2 = parseFloat(document.getElementById("notaProva2").value);
+    let notaAEP2 = parseFloat(document.getElementById("notaAEP2").value);
+    let notaProvaIntegrada2 = parseFloat(document.getElementById("notaProvaIntegrada2").value);
+
+    // Validar os campos obrigatórios
+    if (!nome || !email || !ra) {
+        alert("preencha todos os campos obrigatórios.");
+        return;
+    }
+
