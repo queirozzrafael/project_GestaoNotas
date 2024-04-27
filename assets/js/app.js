@@ -1,6 +1,29 @@
 function cadAlunos(){
     window.location = "register1.html"
 }
+
+function saveAlun(){
+    
+        const nome = document.getElementById('input_nome').value;
+        const ra = document.getElementById('input_ra').value;
+        const email = document.getElementById('input_email').value;
+
+        // Verifica se os campos não estão vazios antes de salvar
+        if (nome && ra && email) {
+            let aluno = {
+                nome: nome,
+                ra: ra,
+                email: email
+            };
+
+            // Convertendo o objeto para string JSON antes de salvar no localStorage
+            localStorage.setItem('aluno', JSON.stringify(aluno));
+            alert('Aluno registrado');
+        } else {
+            alert('Erro, campos não preenchidos');
+        }
+    
+}
 function statusAprovacao() {
     let mediaFinal = document.getElementById('mediaFinal').value;
 
